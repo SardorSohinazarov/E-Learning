@@ -1,0 +1,62 @@
+﻿@page "/lessonlist"
+@attribute [StreamRendering]
+
+<PageTitle>Lessons</PageTitle>
+
+<div class="container">
+
+    <p class="text-center">Lessonlar listi</p>
+
+    @if (lessonList == null)
+    {
+        <p><em>Loading...</em></p>
+    }
+    else
+    {
+        <ul class="list-group list-group-flush">
+            @foreach (var lesson in lessonList)
+            {
+            var id = lesson.Id;
+            <li class="list-group-item">
+                <a href="/lesson/@id">
+                    @lesson.Name
+                </a>
+            </li>
+            }
+        </ul>
+    }
+</div>
+
+<style>
+    .container {
+        width: 70%;
+        align-content: center;
+        align-self: center;
+        align-items: center;
+    }
+</style>
+
+@code {
+    private ELearning.UI.Model.Lesson[]? lessonList;
+
+    protected override async Task OnInitializedAsync()
+    {
+        lessonList = Enumerable.Range(1, 5).Select(index => new ELearning.UI.Model.Lesson
+        {
+            Id = new Random().Next(1,1000),
+            Name = "Darni qattig'i",
+            Contents = new List<ELearning.UI.Model.Content>
+            {
+                new ELearning.UI.Model.Content()
+                {
+                    Id = new Random().Next(1,1000).ToString(),
+                    Title = "title" + Guid.NewGuid().ToString(),
+                    Description = "description" + Guid.NewGuid().ToString(),
+                    ImagePath = "https://freepixel-prod.s3.amazonaws.com/thumb/free-photos-a-man-is-sitting-at-a-desk-with-a-computer-possibly-working-or-enjoying-some-leisure-activities-he-i-th-1004039383.jpg"
+                },
+            },
+            Description = "description" + Guid.NewGuid().ToString(),
+            YoutubeVideoPath = "https://youtu.be/0hijEaQYEtU?si=9J4Y3ELm3iLiE7Ml"
+        }).ToArray();
+    }
+}

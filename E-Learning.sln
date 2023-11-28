@@ -5,6 +5,8 @@ VisualStudioVersion = 17.8.34316.72
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E-Learning.API", "E-Learning.API\E-Learning.API.csproj", "{7206EBE9-6B87-49A4-993B-1CB947942A88}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E-Learning.UI", "E-Learning.UI\E-Learning.UI.csproj", "{4C21CA97-E703-4525-9E66-B7B5522C8060}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{7206EBE9-6B87-49A4-993B-1CB947942A88}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7206EBE9-6B87-49A4-993B-1CB947942A88}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7206EBE9-6B87-49A4-993B-1CB947942A88}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C21CA97-E703-4525-9E66-B7B5522C8060}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C21CA97-E703-4525-9E66-B7B5522C8060}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C21CA97-E703-4525-9E66-B7B5522C8060}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C21CA97-E703-4525-9E66-B7B5522C8060}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

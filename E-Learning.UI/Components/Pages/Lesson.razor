@@ -1,0 +1,119 @@
+﻿@page "/lesson/{id}"
+
+<PageTitle>@lesson.Name</PageTitle>
+
+<div class="container">
+
+    @if(@lesson.YoutubeVideoPath != null)
+    {
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/NI00EIJmEnM?si=soP-rUEo89CEf64x"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+        
+        <br />
+    }
+
+    <h2>@lesson.Name</h2>
+    <h4>@lesson.Description</h4>
+
+    <hr />
+
+    @if(@lesson.Contents != null){
+        @foreach(var content in lesson.Contents)
+        {
+            <br />
+            <br />
+            <p>@content.Title - <span>@content.Description</span></p>
+            <br />
+
+            @if(content.ImagePath != null)
+            {
+                <img src="@content.ImagePath" class="rounded mx-auto d-block" />
+                <br />
+            }
+
+            @if(content.Code != null)
+            {
+                <div class="code-frame">
+                    <pre>
+                    <code class="language-csharp">
+                      @content.Code
+                    </code>
+                    </pre>
+                </div>
+            }
+        }
+    }
+
+   
+</div>
+
+<style>
+    .container{
+        width: 70%;
+        align-content:center;
+        align-self:center;
+        align-items:center;
+    }
+    /* Custom CSS for code frame */
+    .code-frame {
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 15px;
+      margin-bottom: 20px;
+      background-color: #f8f9fa; /* Bootstrap's background color for code blocks */
+    }
+</style>
+
+@code {
+    [Parameter]
+    public string id { get; set; }
+
+    private ELearning.UI.Model.Lesson lesson { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        lesson = new ELearning.UI.Model.Lesson
+            {
+                Id = new Random().Next(1, 1000),
+                Name = "Darni qattig'i",
+                Contents = new List<ELearning.UI.Model.Content>
+                {
+                    new ELearning.UI.Model.Content()
+                    {
+                        Id = new Random().Next(1,1000).ToString(),
+                        Code = @"
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine(""Hello, World!"");
+    }
+}
+",
+                        Title = "title" + Guid.NewGuid().ToString(),
+                        Description = "description" + Guid.NewGuid().ToString(),
+                        ImagePath = "https://freepixel-prod.s3.amazonaws.com/thumb/free-photos-a-man-is-sitting-at-a-desk-with-a-computer-possibly-working-or-enjoying-some-leisure-activities-he-i-th-1004039383.jpg"
+                    },new ELearning.UI.Model.Content()
+                    {
+                        Id = new Random().Next(1,1000).ToString(),
+                        Title = "title" + Guid.NewGuid().ToString(),
+                        Description = "description" + Guid.NewGuid().ToString(),
+                        ImagePath = "https://freepixel-prod.s3.amazonaws.com/thumb/free-photos-a-man-is-sitting-at-a-desk-with-a-computer-possibly-working-or-enjoying-some-leisure-activities-he-i-th-1004039383.jpg"
+                    },new ELearning.UI.Model.Content()
+                    {
+                        Id = new Random().Next(1,1000).ToString(),
+                        Title = "title" + Guid.NewGuid().ToString(),
+                        Description = "description" + Guid.NewGuid().ToString(),
+                        ImagePath = "https://freepixel-prod.s3.amazonaws.com/thumb/free-photos-a-man-is-sitting-at-a-desk-with-a-computer-possibly-working-or-enjoying-some-leisure-activities-he-i-th-1004039383.jpg"
+                    },
+                },
+                Description = "description" + Guid.NewGuid().ToString(),
+                YoutubeVideoPath = "https://youtu.be/0hijEaQYEtU?si=9J4Y3ELm3iLiE7Ml"
+
+            };
+    }
+}
