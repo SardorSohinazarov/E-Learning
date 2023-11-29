@@ -13,26 +13,73 @@
     }
     else
     {
-        <ul class="list-group list-group-flush">
-            @foreach (var lesson in lessonList)
-            {
-            var id = lesson.Id;
-            <li class="list-group-item">
-                <a href="/lesson/@id">
-                    @lesson.Name
-                </a>
-            </li>
-            }
-        </ul>
+        <div class="container">
+            <ul class="list-group list-group-flush">
+                @foreach (var lesson in lessonList)
+                {
+                    var id = lesson.Id;
+                    <a href="/lesson/{@id}" class="list-group-item list-group-item-action border-bottom">
+                    <li class="list-item">
+                        <div class="li-text">
+                                @lesson.Id
+
+                            <br />
+
+                            <h5>
+                                @lesson.Name
+                            </h5>
+                        </div>
+                    </li>
+                    </a>
+                }
+            </ul>
+        </div>
     }
 </div>
 
 <style>
-    .container {
-        width: 70%;
-        align-content: center;
-        align-self: center;
+    .posts-list {
+        justify-content: space-evenly;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    .list-group {
+        list-style-type: none;
+    }
+
+    .list-group-item {
+        position: relative;
+        border-style: solid;
+        transition: box-shadow 0.3s;
+    }
+
+    .list-group-item:hover {
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .list-item {
+        display: flex;
+        justify-content: space-between;
         align-items: center;
+    }
+
+    .li-text {
+        float: left;
+        padding: 10px 0;
+    }
+
+    .item {
+        position: relative;
+        width: 30px;
+        height: 24px;
+    }
+
+    .list-group-item:hover {
+
+        visibility: visible;
     }
 </style>
 
