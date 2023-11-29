@@ -1,4 +1,4 @@
-﻿@page "/lesson/{id}"
+﻿@page "/lessons/{id}"
 
 <PageTitle>@lesson.Name</PageTitle>
 
@@ -6,12 +6,13 @@
 
     @if(@lesson.YoutubeVideoPath != null)
     {
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/NI00EIJmEnM?si=soP-rUEo89CEf64x"
-                title="YouTube video player" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen></iframe>
-        
-        <br />
+        <div class="container">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/NI00EIJmEnM?si=soP-rUEo89CEf64x"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen></iframe>
+            <br />
+        </div>
     }
 
     <h2>@lesson.Name</h2>

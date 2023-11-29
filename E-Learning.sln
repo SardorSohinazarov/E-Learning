@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34316.72
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E-Learning.API", "E-Learning.API\E-Learning.API.csproj", "{7206EBE9-6B87-49A4-993B-1CB947942A88}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E-Learning.API", "E-Learning.API\E-Learning.API.csproj", "{7206EBE9-6B87-49A4-993B-1CB947942A88}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E-Learning.UI", "E-Learning.UI\E-Learning.UI.csproj", "{4C21CA97-E703-4525-9E66-B7B5522C8060}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E-Learning.UI", "E-Learning.UI\E-Learning.UI.csproj", "{4C21CA97-E703-4525-9E66-B7B5522C8060}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
