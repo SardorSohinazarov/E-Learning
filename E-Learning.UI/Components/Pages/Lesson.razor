@@ -2,6 +2,8 @@
 
 <PageTitle>@lesson.Name</PageTitle>
 
+<div class="lessonpage">
+
     <button class="night-mode-btn btn btn-outline-secondary border-0" id="darkModeToggle">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-moon-stars-fill" viewBox="0 0 16 16">
             <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z" />
@@ -9,64 +11,65 @@
         </svg>
     </button>
 
-<div class="container">
+    <div class="container">
 
-    @if(@lesson.YoutubeVideoPath != null)
-    {
-        <div class="bg-white d-flex justify-content-center align-items-center">
-            <iframe width=100% height="504" src="https://www.youtube.com/embed/NI00EIJmEnM?si=soP-rUEo89CEf64x"
-                    title="YouTube video player" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen></iframe>
-        </div>
-        <br />
-    }
-
-    <h2>@lesson.Name</h2>
-    <h4>@lesson.Description</h4>
-
-    <hr />
-
-    @if(@lesson.Contents != null){
-        @foreach(var content in lesson.Contents)
+        @if(@lesson.YoutubeVideoPath != null)
         {
+            <div class="bg-white d-flex justify-content-center align-items-center">
+                <iframe width=100% height="504" src="https://www.youtube.com/embed/NI00EIJmEnM?si=soP-rUEo89CEf64x"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe>
+            </div>
             <br />
-            <br />
-            <p><b>@content.Title</b> - <span>@content.Description</span></p>
+        }
 
-            @if(content.ImagePath != null)
+        <h2>@lesson.Name</h2>
+        <h4>@lesson.Description</h4>
+
+        <hr />
+
+        @if(@lesson.Contents != null){
+            @foreach(var content in lesson.Contents)
             {
-                <img src="@content.ImagePath" width=100% class="rounded mx-auto d-block" />
                 <br />
-            }
+                <br />
+                <p><b>@content.Title</b> - <span>@content.Description</span></p>
 
-            @if(content.Code != null)
-            {
-                <div class="code-frame">
-                    <pre>
-                    <code class="language-csharp">
-                        @content.Code
-                    </code>
-                    </pre>
-                </div>
+                @if(content.ImagePath != null)
+                {
+                    <img src="@content.ImagePath" width=100% class="rounded mx-auto d-block" />
+                    <br />
+                }
+
+                @if(content.Code != null)
+                {
+                    <div class="code-frame">
+                        <pre>
+                        <code class="language-csharp">
+                            @content.Code
+                        </code>
+                        </pre>
+                    </div>
+                }
             }
         }
-    }
 
-    <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="">Fikr bildirish</button>
+        <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="">Fikr bildirish</button>
 
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <form>
-                        <div class="mb-3">
-                            <label for="message-text" class="col-form-label">Dars haqida va taklif uchun:</label>
-                            <textarea class="form-control" style="min-height:500px" id="message-text" placeholder="Har qanday taklif va fikrlaringizni bildiring!"></textarea>
-                        </div>
-                    </form>
-                    <button type="button" class="btn btn-outline-dark float-end" data-bs-dismiss="modal">Yopish</button>
-                    <button type="button" class="btn btn-dark float-end">Jo'natish</button>
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <form>
+                            <div class="mb-3">
+                                <label for="message-text" class="col-form-label">Dars haqida va taklif uchun:</label>
+                                <textarea class="form-control" style="min-height:500px" id="message-text" placeholder="Har qanday taklif va fikrlaringizni bildiring!"></textarea>
+                            </div>
+                        </form>
+                        <button type="button" class="btn btn-outline-dark float-end" data-bs-dismiss="modal">Yopish</button>
+                        <button type="button" class="btn btn-dark float-end">Jo'natish</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -74,9 +77,20 @@
 </div>
 
 <style>
+    main{
+        background-image: url("https://dotnet.microsoft.com/static/images/illustrations/swimlane-contributors-around-world-no-text.svg");
+        background-attachment: fixed;
+        position: relative;
+    }
+
     p{
         font-family: 'Lucida Console',Arial, Helvetica, sans-serif
     }
+
+    h4{
+        font-family: 'Lucida Console',Arial, Helvetica, sans-serif
+    }
+
     .container{
         width: 80%;
         align-content:center;
@@ -91,6 +105,25 @@
       margin-bottom: 20px;
       background-color: #f8f9fa; /* Bootstrap's background color for code blocks */
     }
+
+    .night-mode-btn {
+        border-radius: 50%;
+    }
+
+    :root {
+        --text-color: #000; /* Default text color */
+        --background-color: #fff; /* Default background color */
+    }
+
+    body {
+        color: var(--text-color);
+        background-color: var(--background-color);
+    }
+
+    .dark-mode {
+        --text-color: #fff; /* Dark mode text color */
+        --background-color: #222; /* Dark mode background color */
+    }
 </style>
 
 @code {
@@ -104,26 +137,14 @@
         lesson = new ELearning.UI.Model.Lesson
             {
                 Id = new Random().Next(1, 1000),
-                Name = "Darni qattig'i",
+                Name = ".Net nima?",
+                Description = @".NET is a free, cross-platform, open source developer platform for building many different types of applications.
+                        With .NET, you can use multiple languages, editors, and libraries to build for web, mobile, desktop, games, IoT, and more.",
+                
+                YoutubeVideoPath = "https://youtu.be/0hijEaQYEtU?si=9J4Y3ELm3iLiE7Ml",
                 Contents = new List<ELearning.UI.Model.Content>
                 {
                     new ELearning.UI.Model.Content()
-                    {
-                        Id = new Random().Next(1,1000).ToString(),
-                        Code = @"
-using System;
-
-class Program
-{
-    static void Main()
-    {
-        Console.WriteLine(""Hello, World!"");
-    }
-}
-",
-                        Title = "cp",
-                        Description = "nusxalash (copy) uchun ishlatiladi",
-                    },new ELearning.UI.Model.Content()
                     {
                         Id = new Random().Next(1,1000).ToString(),
                         Title = @"Languages",
@@ -148,20 +169,28 @@ class Program
                                         NuGet is a package manager built specifically for .NET that contains over 100,000 packages.",
                         ImagePath = "https://dotnet.microsoft.com/static/images/redesign/learn/what-is-dotnet/packages.svg"
                     },
-                },
-                Description = "description" + Guid.NewGuid().ToString(),
-                YoutubeVideoPath = "https://youtu.be/0hijEaQYEtU?si=9J4Y3ELm3iLiE7Ml"
+                    new ELearning.UI.Model.Content()
+                    {
+                        Id = new Random().Next(1,1000).ToString(),
+                        Code = @"
+using System;
 
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine(""Hello, World!"");
+    }
+}
+",
+                        Title = "Hello World Dasturi",
+                        Description = @"Birinchi .net appingiz",
+                    },
+                },
             };
     }
 }
 
-<style>
-    .dark-mode {
-        --text-color: #fff; /* Dark mode text color */
-        --background-color: #222; /* Dark mode background color */
-    }
-</style>
 
 <script>
     var darkModeToggle = document.getElementById('darkModeToggle');
