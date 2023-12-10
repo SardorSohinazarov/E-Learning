@@ -49,3 +49,22 @@ h1:focus {
 .darker-border-checkbox.form-check-input {
     border-color: #929292;
 }
+
+
+@media (prefers-color-scheme: dark) {
+    .toggle-container {
+        display: block;
+    }
+
+
+    .light-mode {
+        background-color: #ffffff;
+        color: #000000;
+    }
+
+    /* Dark mode styles */
+    .dark-mode {
+        background-color: #000000;
+        color: #ffffff;
+    }
+}
