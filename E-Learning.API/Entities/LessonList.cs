@@ -1,4 +1,4 @@
-﻿namespace E_Learning.API.Model;
+﻿namespace E_Learning.API.Entities;
 
 public class LessonList
 {

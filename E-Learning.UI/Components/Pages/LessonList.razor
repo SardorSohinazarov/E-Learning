@@ -1,11 +1,13 @@
 ﻿@page "/lessons"
+@using ELearning.UI.Model
 @attribute [StreamRendering]
 
 <PageTitle>Lessons</PageTitle>
 
+<h1 class="text-center">Darslar ro'yhati</h1>
+
 <div class="container">
 
-    <p class="text-center">Lessonlar listi</p>
 
     @if (lessonList == null)
     {
@@ -87,14 +89,61 @@
 </style>
 
 @code {
-    private ELearning.UI.Model.LessonDTO[]? lessonList;
+    private LessonDTO[]? lessonList;
 
     protected override async Task OnInitializedAsync()
     {
-        lessonList = Enumerable.Range(1, 5).Select(index => new ELearning.UI.Model.LessonDTO()
-        {
-            Id = new Random().Next(1,1000).ToString(),
-            Name = "Darni qattig'i"
-        }).ToArray();
+        lessonList = new LessonDTO[]{
+            new LessonDTO()
+            {
+                Id = "1",
+                Name = ".Net ga kirish"
+            }, 
+            new LessonDTO()
+            {
+                Id = "2",
+                Name = "C# da o'zgaruvchilar"
+            },
+            new LessonDTO()
+            {
+                Id = "3",
+                Name = "C# operatorlar"
+            }, 
+            new LessonDTO()
+            {
+                Id = "4",
+                Name = "If Shart operator"
+            }, 
+            new LessonDTO()
+            {
+                Id = "5",
+                Name = "Switch Tanlash operatori"
+            },
+            new LessonDTO()
+            {
+                Id = "6",
+                Name = "For takrorlash sikli"
+            }, 
+            new LessonDTO()
+            {
+                Id = "7",
+                Name = "While(),Do While() takrorlash sikli"
+            }, 
+            new LessonDTO()
+            {
+                Id = "8",
+                Name = "C# String funksiyalari"
+            },
+            new LessonDTO()
+            {
+                Id = "9",
+                Name = "C# Array"
+            }, 
+            new LessonDTO()
+            {
+                Id = "10",
+                Name = "C# Funksiya"
+            }, 
+        };
     }
 }
